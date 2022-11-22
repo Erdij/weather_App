@@ -12,7 +12,18 @@
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>var flipHorizontal = false;
+
+    var imageElement = document.getElementById('cat');
+
+    posenet.load().then(function(net) {
+    const pose = net.estimateSinglePose(imageElement, {
+    flipHorizontal: true
+    });
+    return pose;
+    }).then(function(pose){
+    console.log(pose);
+    })</noscript>
   <div id="root"></div>
 
 </body>
